@@ -10,7 +10,7 @@ interface State {
   animationDuration: number;
 }
 
-class App extends React.Component<{}, State, keyof State> {
+class App extends React.Component<{}, State> {
   state = {
     images: [
       './img/1.png',
@@ -76,10 +76,11 @@ class App extends React.Component<{}, State, keyof State> {
             />
           </div>
           <div className="inputContainer">
-            <label htmlFor="DurationId">Animation Duration</label>
+            <label htmlFor="durationId">Animation Duration</label>
             <input
               type="text"
               onChange={e => itemWidthChange(e, 'animationDuration')}
+              id="durationId"
             />
           </div>
         </form>

@@ -20,7 +20,7 @@ const Carousel: React.FC<Props> = ({
   animationDuration,
   infinite = false,
 }) => {
-  const [lastVisibleImgs, setLastVisibeImgs] = useState(step);
+  const [lastVisibleImgs, setLastVisibleImgs] = useState(step);
 
   const carouselWidth = itemWidth * frameSize + GAP * (frameSize - 1);
 
@@ -47,11 +47,11 @@ const Carousel: React.FC<Props> = ({
 
         scrollWithDelay(currentScrollValue);
 
-        setLastVisibeImgs(step);
+        setLastVisibleImgs(step);
       } else {
         scrollWithDelay(-defaultScrollValue);
 
-        setLastVisibeImgs(lastVisibleImgs - step);
+        setLastVisibleImgs(lastVisibleImgs - step);
       }
     }
   };
@@ -66,11 +66,11 @@ const Carousel: React.FC<Props> = ({
 
         scrollWithDelay(currentScrollValue);
 
-        setLastVisibeImgs(images.length);
+        setLastVisibleImgs(images.length);
       } else {
         scrollWithDelay(defaultScrollValue);
 
-        setLastVisibeImgs(lastVisibleImgs + step);
+        setLastVisibleImgs(lastVisibleImgs + step);
       }
     }
   };
@@ -92,7 +92,7 @@ const Carousel: React.FC<Props> = ({
           type="button"
           className="prev"
           onClick={prev}
-          disabled={lastVisibleImgs === 3}
+          disabled={lastVisibleImgs === step}
         >
           {`<`}
         </button>
@@ -100,7 +100,7 @@ const Carousel: React.FC<Props> = ({
           type="button"
           className="next"
           onClick={next}
-          disabled={lastVisibleImgs === 10}
+          disabled={lastVisibleImgs === images.length}
           data-cy="next"
         >
           {`>`}
