@@ -14,10 +14,10 @@ const GAP = 8;
 
 const Carousel: React.FC<Props> = ({
   images,
-  step = 3,
-  frameSize = 3,
-  itemWidth = 130,
-  animationDuration = 1000,
+  step,
+  frameSize,
+  itemWidth,
+  animationDuration,
   infinite = false,
 }) => {
   const [lastVisibleImgs, setLastVisibeImgs] = useState(step);
